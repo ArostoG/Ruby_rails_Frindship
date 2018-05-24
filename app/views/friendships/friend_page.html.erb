@@ -1,0 +1,40 @@
+<h2>Hello,<%=@user.name%></h2>
+<p> Here is the list of your friends</p>
+<table id="customers">
+  <thead>
+    <tr class="color">
+      <td>Alias</td>
+      <td>Action</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @user_friend.each do |u| %>
+    <tr>
+    <td><%= u.name %></td>
+    <td><a href="/user./<%=u.id %>">View Profile</a> | | <a href="/friend/<%=u.id %>/remove">remove friend</a></td>
+    </tr>
+ <%end%>
+
+  </tbody>
+</table> 
+
+
+
+<p> Other users donot at your friend List</p>
+
+<table id="customers">
+  <thead>
+    <tr class="color">
+      <td>Alias</td>
+      <td>Action</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @other_users.each do |u| %>
+    <tr>
+    <td><a href="/user/<%=u.id %>"><%= u.alias %></a></td>
+    <td><a href="/friend/<%=u.id %>/join">add as friend</a></td>
+    </tr>
+ <%end%>
+  </tbody>
+</table> 
